@@ -1,1 +1,1 @@
-PRoyecto Practico Diseñado para el proceso de ingreso a Sofka U
+Proyecto Practico Diseñado para el proceso de ingreso a Sofka U
