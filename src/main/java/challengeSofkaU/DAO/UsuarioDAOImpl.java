@@ -36,7 +36,7 @@ public class UsuarioDAOImpl implements UsuarioDAO<Usuario> {
     public boolean insertarUsuario(Usuario jugadorActual) {
         int insert = jdt.update(instUsuario, jugadorActual.getDocumento(),jugadorActual.getNombre());
         if (insert == 1) {
-            log.info("Nuevo Usuario Registrado: " + jugadorActual.getNombre());
+            //log.info("Nuevo Usuario Registrado: " + jugadorActual.getNombre());
             return true;
         } else {
             return false;

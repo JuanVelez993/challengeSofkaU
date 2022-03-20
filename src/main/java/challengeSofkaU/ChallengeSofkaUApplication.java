@@ -30,7 +30,6 @@ public class ChallengeSofkaUApplication {
 		String[] opcionesMenuInicial =new String[]{"-------Bienvenido al Concurso de Preguntas---------",
 		"1.Participar","2.Ver Historial","3.Salir"};
 		Optional<Usuario> optionalParticipanteExistente;
-		List<Historial> hists=daoHistorial.mostrarHistorial();
 		Scanner scanner = new Scanner(System.in).useDelimiter("\\n");
 		int opcion;
 		boolean menu=true;
@@ -101,6 +100,7 @@ public class ChallengeSofkaUApplication {
 						}
 						break;
 					case 2: // Historial de Puntuaciones
+						List<Historial> hists=daoHistorial.mostrarHistorial();
 						Concurso.imprimirHistorial(hists);
 						break;
 					case 3:// salir
