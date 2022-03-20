@@ -1,14 +1,21 @@
 package challengeSofkaU.models;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Pregunta {
+    //El identificador de la pregunta
     int id_pregunta;
+    //La dificultad o categoria
     int dificultad;
+    //La descripcion de la pregunta
     String textoPregunta;
+    //La posicion de la respuesta correcta
     int id_respuesta;
-    ArrayList<Respuesta> respuestas;
+    //La lista de posibles respuestas
+    List<Respuesta> respuestas;
 
+    //constructores y getters and setters
     public Pregunta() {
     }
 
@@ -44,34 +51,19 @@ public class Pregunta {
         this.id_respuesta = id_repsuesta;
     }
 
-    public ArrayList<Respuesta> getRespuestas() {
+    public List<Respuesta> getRespuestas() {
         return respuestas;
+    }
+
+    public void setRespuestas(List<Respuesta> respuestas) {
+        this.respuestas = respuestas;
     }
 
     public void setRespuestas(ArrayList<Respuesta> respuestas) {
         this.respuestas = respuestas;
     }
 
-    public void mostrarPregunta(){
-        System.out.println(this.textoPregunta);
-        int i=0;
-        while (i<respuestas.size()){
-            System.out.println("\t "+(i+1)+". "+respuestas.get(i));
-            i++;
-
-        }
-
-    }
-
-    public boolean comprobarRespuesta(int respuesta) {
-        Respuesta r = respuestas.get(respuesta - 1);
-
-        if (r != null) {
-            return r.respuestaCorrecta();
-        }
-        return false;
 
 
-    }
 
 }

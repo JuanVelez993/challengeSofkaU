@@ -23,16 +23,17 @@ public class HistorialDAOImpl implements HistorialDAO {
         Historial hist = new Historial();
         hist.setPremio(rs.getInt("premio"));
         hist.setRonda(rs.getInt("ronda"));
+        hist.setDocumento(rs.getString("documento"));
         return hist;
     };
 
-    final String readHist = "Select ronda,premio from historial";
-    final String instHist = "INSERT INTO historial (id_historial,documento,ronda,premio) VALUES (?,?,?,?)";
+    final String readHist = "Select documento,ronda,premio from historial";
+    final String instHist = "INSERT INTO historial (documento,ronda,premio) VALUES (?,?,?)";
 
 
     @Override
     public boolean insertarHistorial(Historial historialActual) {
-        int insert = jdt.update(instHist, historialActual.getPremio(),historialActual.getRonda());
+        int insert = jdt.update(instHist,historialActual.getDocumento(),historialActual.getRonda(), historialActual.getPremio());
         if (insert == 1) {
             return true;
         } else {

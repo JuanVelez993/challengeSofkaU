@@ -1,45 +1,47 @@
 package challengeSofkaU.models;
 
 public class Historial {
-     int id_historial;
-     String documento;
-     int ronda ;
-     int premio;
+    //Este atributo guarda el documento del jugador a registrar en el historial
+    String documento;
+    //Este atributo guarda la ronda a la que llego
+    int ronda;
+    //Este atributo guarda el premio que obtuvo
+    int premio;
 
-     public Historial() {
-     }
 
-     public int getId_historial() {
-          return id_historial;
-     }
+    //constructor y getters and setters
+    public Historial() {
+    }
 
-     public void setId_historial(int id_historial) {
-          this.id_historial = id_historial;
-     }
+    public Historial(String documento, int ronda, int premio) {
+        this.documento = documento;
+        this.ronda = ronda;
+        this.premio = premio;
+    }
 
-     public String getDocumento() {
-          return documento;
-     }
+    public String getDocumento() {
+        return documento;
+    }
 
-     public void setDocumento(String documento) {
-          this.documento = documento;
-     }
+    public void setDocumento(String documento) {
+        this.documento = documento;
+    }
 
-     public int getRonda() {
-          return ronda;
-     }
+    public int getRonda() {
+        return ronda;
+    }
 
-     public void setRonda(int ronda) {
-          this.ronda = ronda;
-     }
+    public void setRonda(int ronda) {
+        this.ronda = ronda;
+    }
 
-     public int getPremio() {
-          return premio;
-     }
+    public int getPremio() {
+        return premio;
+    }
 
-     public void setPremio(int premio) {
-          this.premio = premio;
-     }
-
+    public void setPremio(int premio) {
+        this.premio = premio;
+    }
 
 }
+

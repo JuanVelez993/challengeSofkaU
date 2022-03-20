@@ -7,4 +7,5 @@ import java.util.List;
 public interface RespuestaDAO<Respuesta> {
 
     List<Respuesta> mostrarRespuesta();
+    List<Respuesta> filtrarRespuesta(int preg);
 }

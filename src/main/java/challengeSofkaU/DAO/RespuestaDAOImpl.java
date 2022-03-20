@@ -29,9 +29,15 @@ public class RespuestaDAOImpl implements RespuestaDAO {
 
 
     final String readResps= "Select id_respuesta,respuesta,valor,id_pregunta from respuesta";
+    final String filtResps= "select *from respuesta where id_pregunta=";
 
     @Override
     public List<Respuesta> mostrarRespuesta() {
         return jdt.query(readResps,rm);
+    }
+
+    @Override
+    public List filtrarRespuesta(int preg) {
+        return jdt.query(filtResps+preg,rm);
     }
 }

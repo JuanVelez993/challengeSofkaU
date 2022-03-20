@@ -1,5 +1,8 @@
 package challengeSofkaU.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Usuario {
     String documento;
     String nombre;
@@ -24,7 +27,10 @@ public class Usuario {
     }
 
 
-
-
-
 }
+
+
+
+
+
+

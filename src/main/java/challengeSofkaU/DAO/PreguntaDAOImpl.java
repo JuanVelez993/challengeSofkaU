@@ -4,16 +4,18 @@ import challengeSofkaU.models.Categoria;
 import challengeSofkaU.models.Pregunta;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class PreguntaDAOImpl implements PreguntaDAO {
     private static final Logger log = LoggerFactory.getLogger(CategoriaDAOImpl.class);
-    private JdbcTemplate jdt;
+    private final JdbcTemplate jdt;
 
     public PreguntaDAOImpl(JdbcTemplate jdt) {
         this.jdt = jdt;
@@ -30,6 +32,7 @@ public class PreguntaDAOImpl implements PreguntaDAO {
     };
 
     final String readPregs= "Select id_pregunta,texto_pregunta,dificultad,id_respuesta from pregunta";
+    final String filtPregs= "Select id_pregunta,texto_pregunta,dificultad,id_respuesta from pregunta where dificultad=";
 
 
 
@@ -38,4 +41,11 @@ public class PreguntaDAOImpl implements PreguntaDAO {
     public List<Pregunta> mostrarPregunta() {
         return jdt.query(readPregs,rm);
     }
+
+    @Override
+    public List<Pregunta> filtrarDificultad(int dif) {
+        return jdt.query(filtPregs+dif,rm);
+    }
+
+
 }
