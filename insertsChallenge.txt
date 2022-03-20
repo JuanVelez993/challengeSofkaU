@@ -1,0 +1,204 @@
+-- Datos para la tabla Categoria
+insert into Categoria(dificultad,categoria)values (1,'Entretenimiento');
+insert into Categoria(dificultad,categoria)values (2,'Deportes');
+insert into Categoria(dificultad,categoria)values (3,'Arte y Literatura');
+insert into Categoria(dificultad,categoria)values (4,'Naturaleza y ciencias');
+insert into Categoria(dificultad,categoria)values (5,'Geografia');
+
+--Datos para la tabla Pregunta
+--Categoria 1
+insert into Pregunta(id_pregunta,texto_pregunta,dificultad,id_respuesta)values (1,'¿Quién fue el famoso cantante del grupo musical Queen?',1,2);
+insert into Pregunta(id_pregunta,texto_pregunta,dificultad,id_respuesta)values (2,'¿Cómo se llama la ciudad donde se encuentra el Mago de Oz?',1,1);
+insert into Pregunta(id_pregunta,texto_pregunta,dificultad,id_respuesta)values (3,'¿De qué grupo es la canción “Smells like a teen spirit”?',1,3);
+insert into Pregunta(id_pregunta,texto_pregunta,dificultad,id_respuesta)values (4,'¿Cómo se llama la protagonista de la saga de videojuegos "The Legend of Zelda"?',1,4);
+insert into Pregunta(id_pregunta,texto_pregunta,dificultad,id_respuesta)values (5,'¿A qué saga de películas pertenece el personaje conocido como Jack Sparrow?',1,3);
+
+--Categoria 2
+insert into Pregunta(id_pregunta,texto_pregunta,dificultad,id_respuesta)values (6,'¿Quién escribió la Ilíada y la Odisea?',2,1);
+insert into Pregunta(id_pregunta,texto_pregunta,dificultad,id_respuesta)values (7,'¿De qué estilo arquitectónico es la catedral de Notre Dame?',2,4);
+insert into Pregunta(id_pregunta,texto_pregunta,dificultad,id_respuesta)values (8,'¿Qué nombre tenía el caballo de Don Quijote de la Mancha?',2,4);
+insert into Pregunta(id_pregunta,texto_pregunta,dificultad,id_respuesta)values (9,'¿Cómo se llama el pintor de la obra “El Grito”?',2,1);
+insert into Pregunta(id_pregunta,texto_pregunta,dificultad,id_respuesta)values (10,'¿En qué continente nació Arya Stark, personaje de la saga de libros Canción de hielo y Fuego de George R. R. Martin?',2,4);
+
+--Categoria 3
+insert into Pregunta(id_pregunta,texto_pregunta,dificultad,id_respuesta)values (11,'¿Qué gas nos protege de la radiación solar, concretamente de la radiación ultravioleta, formando una capa en la atmósfera?',3,3);
+insert into Pregunta(id_pregunta,texto_pregunta,dificultad,id_respuesta)values (12,'¿Cuál es el nombre técnico del miedo o fobia a las alturas?',3,2);
+insert into Pregunta(id_pregunta,texto_pregunta,dificultad,id_respuesta)values (13,'La fórmula E=mc2, ¿fue propuesta por cual científico?',3,4);
+insert into Pregunta(id_pregunta,texto_pregunta,dificultad,id_respuesta)values (14,'¿Cómo se llama la planta a partir de la cual suele ser elaborado el tequila?',3,1);
+insert into Pregunta(id_pregunta,texto_pregunta,dificultad,id_respuesta)values (15,'¿Cuál es el principal tipo de célula que forma parte del sistema nervioso de humanos y otros animales?',3,3);
+
+--Categoria 4
+insert into Pregunta(id_pregunta,texto_pregunta,dificultad,id_respuesta)values (16,'¿Cada cuántos años se celebran los Juegos Olímpicos?',4,2);
+insert into Pregunta(id_pregunta,texto_pregunta,dificultad,id_respuesta)values (17,'¿Qué equipo de fútbol ha ganado más Mundiales hasta el momento?',4,2);
+insert into Pregunta(id_pregunta,texto_pregunta,dificultad,id_respuesta)values (18,'¿En qué ciudad nació el futbolista Lionel Messi?',4,3);
+insert into Pregunta(id_pregunta,texto_pregunta,dificultad,id_respuesta)values (19,'¿Qué arte marcial fue desarrollado para parecerse a un baile?',4,1);
+insert into Pregunta(id_pregunta,texto_pregunta,dificultad,id_respuesta)values (20,'¿Qué arte marcial es conocido como “el boxeo tailandés”?',4,2);
+
+--Categoria 5
+insert into Pregunta(id_pregunta,texto_pregunta,dificultad,id_respuesta)values (21,'¿Cuál es la lengua más hablada del mundo?',5,4);
+insert into Pregunta(id_pregunta,texto_pregunta,dificultad,id_respuesta)values (22,'¿Qué ciudad de Colombia es reconocida por la Salsa?',5,2);
+insert into Pregunta(id_pregunta,texto_pregunta,dificultad,id_respuesta)values (23,'¿Cuál es la capital de Brasil?',5,2);
+insert into Pregunta(id_pregunta,texto_pregunta,dificultad,id_respuesta)values (24,'¿Cuál es la capital de Filipinas?',5,1);
+insert into Pregunta(id_pregunta,texto_pregunta,dificultad,id_respuesta)values (25,'¿Dónde queda el famoso Teatro Negro?',5,4);
+
+
+
+--Datos para la tabla Respuesta
+
+--Categoria 1
+	--Pregunta 1
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (1,'Bon Jovi  ',false,1);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (2,'Freddie Mercury ',true,1);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (3,'Elton John ',false,1);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (4,'Brian May',false,1);
+
+	--Pregunta 2
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (5,'Ciudad Esmeralda ',true,2);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (6,'Ciudad Dorada ',false,2);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (7,'Desembarco del Rey ',false,2);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (8,'Metrópolis',false,2);
+
+	--Pregunta 3
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (9,'Queen ',false,3);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (10,'Linkin Park ',false,3);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (11,'Nirvana ',true,3);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (12,'Foo Fighters ',false,3);
+
+	--Pregunta 4
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (13,'Link ',true,4);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (14,'Zelda ',false,4);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (15,'Mario ',false,4);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (16,'Skull K⁯id',false,4);
+
+	--Pregunta 5
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (17,'Misión Imposible ',false,5);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (18,'Marvel ',false,5);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (19,'Piratas del Caribe  ',true,5);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (20,'Star Wars ',false,5);
+
+--Categoria 2
+	--Pregunta 1
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (21,'Homero  ',true,6);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (22,'Odiseo ',false,6);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (23,'Ulises ',false,6);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (24,'Dante ',false,6);
+
+	--Pregunta 2
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (25,'Clásico ',false,7);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (26,'Renacentista ',false,7);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (27,'Nórdico ',false,7);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (28,'Gótico',true,7);
+
+	--Pregunta 3
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (29,'Flamingo ',false,8);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (30,'Sancho ',false,8);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (31,'Dulcinea ',false,8);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (32,'Rocinante ',true,8);
+
+	--Pregunta 4
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (33,'Edvard Munch ',true,9);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (34,'Vincent van Gogh ',false,9);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (35,'Salvador Dalí ',false,9);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (36,'Pablo Picasso ',false,9);
+
+	--Pregunta 5
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (37,'Krakoa ',false,10);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (38,'Narnia ',false,10);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (39,'Tierra Media ',false,10);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (40,'Westeros ',true,10);
+
+--Categoria 3
+	--Pregunta 1
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (41,'Radón ',false,11);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (42,'Kriptón ',false,11);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (43,'Ozono ',true,11);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (44,'Nitrógeno ',false,11);
+
+	--Pregunta 2
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (45,'Aerofobia ',false,12);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (46,'Acrofobia ',true,12);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (47,'Ailurofobia ',false,12);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (48,'Aporofobia',false,12);
+
+	--Pregunta 3
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (49,'Marie Curie ',false,13);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (50,'Stephen Hawking ',false,13);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (51,'Isaac Newton ',false,13);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (52,'Albert Einstein ',true,13);
+
+	--Pregunta 4
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (53,'Agave ',true,14);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (54,'Caña ',false,14);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (55,'Cebada ',false,14);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (56,'Ajenjo ',false,14);
+
+	--Pregunta 5
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (57,'Musculares ',false,15);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (58,'Glandulares ',false,15);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (59,'Neurona ',true,15);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (60,'Glial ',false,15);
+
+--Categoria 4
+	--Pregunta 1
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (61,'6 ',false,16);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (62,'2 ',true,16);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (63,'8 ',false,16);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (64,'4 ',false,16);
+
+	--Pregunta 2
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (65,'Francia ',false,17);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (66,'Brasil ',true,17);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (67,'Alemania ',false,17);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (68,'Argentina',false,17);
+
+	--Pregunta 3
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (69,'Buenos Aires ',false,18);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (70,'Córdoba ',false,18);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (71,'Rosario ',true,18);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (72,'La plata ',false,18);
+
+	--Pregunta 4
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (73,'Capoeira ',true,19);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (74,'Judo ',false,19);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (75,'Taekwondo ',false,19);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (76,'Kung Fu ',false,19);
+
+	--Pregunta 5
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (77,'Krav Maga ',false,20);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (78,'Muay Thai ',true,20);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (79,'Savate ',false,20);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (80,'Aikido ',false,20);
+
+--Categoria 5
+	--Pregunta 1
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (81,'Ingles ',false,21);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (82,'Español ',false,21);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (83,'Japones ',false,21);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (84,'Mandarin ',true,21);
+
+	--Pregunta 2
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (85,'Medellín ',false,22);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (86,'Cali  ',true,22);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (87,'Bogotá ',false,22);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (88,'Armenia',false,22);
+
+	--Pregunta 3
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (89,'Rio de Janeiro  ',false,23);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (90,'Brasilia ',true,23);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (91,'Sao Paulo ',false,23);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (92,'Fortaleza ',false,23);
+
+	--Pregunta 4
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (93,'Manila ',true,24);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (94,'Baguio ',false,24);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (95,'Makati ',false,24);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (96,'Davao ',false,24);
+
+	--Pregunta 5
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (97,'Sofia ',false,25);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (98,'Medellín ',false,25);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (99,'Chicago ',false,25);
+	insert into respuesta(id_respuesta,respuesta,valor,id_pregunta)values (100,'Praga ',true,25);
+
+
+

@@ -1,0 +1,66 @@
+--la contraseña del usuario postgres para este ejercicio es contra en caso de ser otra en el computador donde se ejecutara,cambiarla en el archivo application.properties
+--lo mismo con el puerto se usa el localhost:5432 en caso de ser diferente modificarlo en el mismo archivo
+
+--Creacion de  base de datos
+
+CREATE DATABASE "challengeSofkaU"
+    WITH 
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    CONNECTION LIMIT = -1;
+
+--Creacion de tablas 
+
+CREATE TABLE Categoria(
+dificultad int  NOT NULL,
+categoria VARCHAR(150) NOT NULL,
+CONSTRAINT pk_categoria PRIMARY KEY(dificultad)
+);
+
+--DROP TABLE Categoria;
+
+CREATE TABLE Pregunta(
+id_pregunta int  NOT NULL,
+texto_pregunta VARCHAR(250) NOT NULL,
+dificultad int  NOT NULL,
+id_respuesta int NOT NULL,
+CONSTRAINT pk_pregunta PRIMARY KEY(id_pregunta),
+CONSTRAINT FK_categoria FOREIGN KEY (dificultad) REFERENCES Categoria(dificultad)
+);
+
+--DROP TABLE Pregunta;
+
+CREATE TABLE Respuesta(
+id_respuesta int  NOT NULL,
+respuesta VARCHAR(80) NOT NULL,
+valor boolean NOT NULL,
+id_pregunta int NOT NULL,
+CONSTRAINT pk_respuesta PRIMARY KEY(id_respuesta),
+CONSTRAINT FK_respuestas FOREIGN KEY (id_pregunta) REFERENCES Pregunta(id_pregunta)
+);
+
+--DROP TABLE Respuesta;
+
+CREATE TABLE Usuario(
+documento VARCHAR(80)  NOT NULL,
+nombre VARCHAR(80) NOT NULL,
+CONSTRAINT pk_usuario PRIMARY KEY(documento)
+
+);
+
+--DROP TABLE Usuario;
+
+CREATE TABLE Historial(
+id_historial SERIAL NOT NULL,
+documento VARCHAR(80)  NOT NULL,
+ronda int ,
+premio int,
+CONSTRAINT pk_historial PRIMARY KEY(id_historial),
+CONSTRAINT FK_usuarios FOREIGN KEY (documento) REFERENCES Usuario(documento)
+);
+
+--DROP TABLE Historial;
+
+
+
+
