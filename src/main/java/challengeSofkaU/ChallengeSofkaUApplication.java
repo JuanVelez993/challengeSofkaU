@@ -4,13 +4,14 @@ import challengeSofkaU.DAO.*;
 import challengeSofkaU.models.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
 @SpringBootApplication
 public class ChallengeSofkaUApplication {
-
 	private static UsuarioDAO<Usuario> daoUsuario;
 	private static HistorialDAO<Historial> daoHistorial;
 	private static PreguntaDAO<Pregunta> daoPregunta;
@@ -28,14 +29,12 @@ public class ChallengeSofkaUApplication {
 
 		String[] opcionesMenuInicial =new String[]{"-------Bienvenido al Concurso de Preguntas---------",
 		"1.Participar","2.Ver Historial","3.Salir"};
-
 		Optional<Usuario> optionalParticipanteExistente;
 		List<Historial> hists=daoHistorial.mostrarHistorial();
 		Scanner scanner = new Scanner(System.in).useDelimiter("\\n");
 		int opcion;
 		boolean menu=true;
 		boolean respuesta;
-		Usuario participante = new Usuario();
 
 		do{
 			Concurso.printMenu(opcionesMenuInicial);
@@ -43,12 +42,15 @@ public class ChallengeSofkaUApplication {
 				opcion=scanner.nextInt();
 				switch(opcion) {
 					case 1: // Concurso de Preguntas
+						//Preparacion de usuario para la partida
 						Concurso challenge=new Concurso();
+						Usuario participante = new Usuario();
 						System.out.println("Ingrese su Documento de identidad");
 						participante.setDocumento(scanner.next());
 						optionalParticipanteExistente = daoUsuario.buscarUsuario(participante.getDocumento());
 						challenge.setParticipante(optionalParticipanteExistente.orElse(participante));
 						challenge.validarUsuario(scanner,daoUsuario);
+						//Preparacion de las rondas
 						boolean jugardorGanador = true;
 						for(int i = 1 ; i < 6; i++){
 							challenge.setRonda(i);
@@ -56,16 +58,29 @@ public class ChallengeSofkaUApplication {
 							challenge.selecPregRandom();
 							List<Respuesta> resps = daoRespuesta.filtrarRespuesta(challenge.getPreguntaActual().getId_pregunta());
 							challenge.imprimirPregunta(resps);
-
-							// TODO hacer validaciones para respuestas incorrectas
-							// while con try catch interno hasta que las respuesta este correcta
-
-							respuesta=challenge.validarRespuesta(resps,resps.get(scanner.nextInt()-1));
+							//validacion de respuesta y continuacion o no de la partida
+							boolean valorResp = false;
+							int j=4;
+							while (!valorResp) {
+								try {
+									j= scanner.nextInt();
+									valorResp = true;
+								} catch (InputMismatchException e) {
+									System.out.println("Ingrese un valor numerico correspondientes a las respuestas");
+									valorResp = false;
+									scanner.nextLine();
+								}
+							}
+							respuesta=challenge.validarRespuesta(resps,resps.get(j-1));
 							if(respuesta){
 								challenge.setPuntosConcurso(challenge.getPuntosConcurso()+(i*10000));
-								System.out.println("Desea avanzar a la siguiente ronda?");
-								// TODO especificar en el mensaje tipo de respuesta 1.SI 2.NO  y validarlo
-								if(scanner.next().equals("no")){
+								System.out.println("Desea avanzar a la siguiente ronda? :");
+								String seguirPartida="value";
+								while (!seguirPartida.equals ("si") && !seguirPartida.equals ("no")){
+									System.out.println("La respuesta debe ser si o no");
+									seguirPartida= scanner.next();
+								}
+								if(seguirPartida.equals("no")){
 									guardarHistorial(challenge);
 									jugardorGanador = false;
 									System.out.println("Su premio es de: " + challenge.getPuntosConcurso());
@@ -79,7 +94,7 @@ public class ChallengeSofkaUApplication {
 								break;
 							}
 						}
-
+						//Si se terminaron las rondas de manera exitosa
 						if(jugardorGanador){
 							guardarHistorial(challenge);
 							System.out.println("Felicidades has superado las 5 rondas ");
@@ -98,14 +113,24 @@ public class ChallengeSofkaUApplication {
 
 			}
 			catch (Exception ex){
-				System.out.println("Por favor seleccione una opcion entre 1 y  " + opcionesMenuInicial.length);
-				// TODO validaciones
-				scanner.nextInt();
+				boolean valorResp = false;
+				int k=4;
+				while (!valorResp) {
+					try {
+						k= scanner.nextInt();
+						valorResp = true;
+					} catch (InputMismatchException e) {
+						System.out.println("Ingrese un valor numerico entre 1 y 3");
+						valorResp = false;
+						scanner.nextLine();
+					}
+				}
+
 			}
 		}while(menu);
 	}
 
-	static private void guardarHistorial(Concurso challenge){
+	 private static void guardarHistorial(Concurso challenge){
 		Historial historial = new Historial(
 				challenge.getParticipante().getDocumento(),
 				challenge.getRonda(),
